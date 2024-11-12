@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="d-flex justify-content-between">
+    <div class="d-flex align-items-center">
+        <button mat-icon-button (click)="onDrawerToggle()" class="drawer-toggle-button me-2" *ngIf="isLoggedIn">
+            <fa-icon icon="bars"></fa-icon>
+        </button>
+
+        <span>Brands</span>
+    </div>
+
+    <div>
+        <button mat-icon-button type="button" (click)="logout()" *ngIf="isLoggedIn">
+            <fa-icon [icon]="'right-from-bracket'"></fa-icon>
+        </button>
+    </div>
+</mat-toolbar>
+
+<mat-card style="height: calc(100% - 64px);">
+    <router-outlet></router-outlet>
+</mat-card>

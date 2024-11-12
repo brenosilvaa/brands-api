@@ -1,0 +1,54 @@
+version: "3"
+
+volumes:
+  mysql:
+
+networks:
+  brands:
+    driver: bridge
+
+services:
+  auth-api:
+    container_name: "auth-api"
+    image: auth-service
+    ports:
+      - 8001:8080
+    networks:
+      - brands
+    depends_on:
+      - mysql-dev-brands
+    restart: always
+
+  brands-api:
+    container_name: "brands-api"
+    image: brands-service:latest
+    ports:
+      - 8002:8080
+    networks:
+      - brands
+    depends_on:
+      - mysql-dev-brands
+    restart: always
+
+  gateway-api: 
+    container_name: "gateway-api"
+    image: gateway
+    ports:
+      - 8000:8080
+    networks:
+      - brands
+    depends_on:
+      - mysql-dev-brands
+    restart: always
+
+  mysql-dev-brands:
+    container_name: "mysql-dev-brands"
+    image: mysql:latest
+    ports:
+      - 33068:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=Teste@2024
+    networks:
+      - brands
+    volumes:
+      - mysql:/var/lib/mysql

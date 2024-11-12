@@ -1,0 +1,49 @@
+<app-header title="Marca" mode="form" (clicked)="save()" [disabled]="!canSubmit()"></app-header>
+
+<form [formGroup]="form" (submit)="save()">
+  <mat-card class="mb-3">
+    <mat-card-content>
+
+      <div class="row">
+
+        <div class="col-12 col-md-5 col-lg-4">
+          <app-card-form title="de uma marca" [isLoading]="isLoading"></app-card-form>
+        </div>
+
+        <div class="col-12 col-md-7 col-lg-8">
+          <div class="row">
+            <mat-form-field class="col-12 col-md-6" appearance="outline">
+              <mat-label>Nome</mat-label>
+              <input matInput type="text" formControlName="name" required />
+              <mat-error>Campo obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12 col-md-6" appearance="outline">
+              <mat-label>Proprietário</mat-label>
+              <input matInput type="text" formControlName="owner" required />
+              <mat-error>Campo obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12" appearance="outline">
+              <mat-label>Descrição</mat-label>
+              <textarea matInput formControlName="description" rows="5" required></textarea>
+              <mat-error>Campo obrigatório</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </mat-card-content>
+  </mat-card>
+
+  <div class="d-flex justify-content-between">
+    <div></div>
+    <button mat-raised-button type="submit" color="primary" [disabled]="!canSubmit()">
+      <fa-icon [icon]="'check'"></fa-icon>
+      Confirmar</button>
+
+  </div>
+</form>

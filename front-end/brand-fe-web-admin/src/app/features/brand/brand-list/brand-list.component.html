@@ -1,0 +1,41 @@
+<app-header title="Marcas" mode="list" [route]="['/brands', 'form']"></app-header>
+
+<p *ngIf="isLoading">Carregando...</p>
+
+
+<div class="d-flex align-items-center" *ngIf="brands.length == 0 && !isLoading">
+    Nenhum registro encontrado :(
+</div>
+
+<app-table *ngIf="!isLoading && brands.length > 0">
+    <table mat-table [dataSource]="brandsDataSource" *ngIf="!isLoading">
+        <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let brand; columns: columns"></tr>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let brand"> {{brand.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="owner">
+            <th mat-header-cell *matHeaderCellDef>Proprietário</th>
+            <td mat-cell *matCellDef="let brand"> {{brand.owner}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let brand">
+                <div class="d-flex">
+                    <a mat-raised-button [routerLink]="['/brands', 'form', brand.id]" [disabled]="brand.isRemoving">
+                        Editar
+                    </a>
+
+                    <button mat-raised-button type="button" class="ms-2" color="warn" (click)="remove(brand)"
+                        [disabled]="brand.isRemoving">
+                        {{brand.isRemoving ? 'Removendo...' :'Remover'}}
+                    </button>
+                </div>
+            </td>
+        </ng-container>
+    </table>
+</app-table>

@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-between align-items-center pt-2">
+    <div>
+        <button mat-button type="button" *ngIf="mode == 'form'" (click)="back()">
+            <fa-icon [icon]="'chevron-left'"></fa-icon>
+            Voltar
+        </button>
+        <h1 class="mb-0">{{title}}</h1>
+    </div>
+
+    <a mat-raised-button color="primary" [routerLink]="route" *ngIf="mode == 'list'">
+        <fa-icon [icon]="'plus'"></fa-icon>
+        Adicionar
+    </a>
+
+    <button mat-raised-button type="button" color="primary" (click)="buttonClick()" [disabled]="disabled"
+        *ngIf="mode == 'form'">
+        <fa-icon [icon]="'check'"></fa-icon>
+        Confirmar
+    </button>
+</div>
+<mat-divider class="mb-3 mt-2"></mat-divider>

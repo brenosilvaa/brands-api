@@ -1,0 +1,28 @@
+{
+  "Routes": [
+    // Brands
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "brands-api",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/brands/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Patch", "Delete", "Options" ]
+    },
+    // Auth
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-api",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/auth/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Patch", "Delete", "Options" ]
+    }
+  ]
+}
