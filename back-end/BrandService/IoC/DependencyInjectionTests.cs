@@ -1,11 +1,4 @@
-﻿using BrandService.Data.Context;
-using BrandService.Domain.Contracts;
-using BrandService.Domain.Contracts.Context;
-using BrandService.Domain.Contracts.Repos;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Moq;
+﻿using Moq;
 using Xunit;
 
 namespace BrandService.IoC
