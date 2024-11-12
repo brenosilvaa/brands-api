@@ -1,4 +1,4 @@
-# Projeto de cadastro de Brandd utilizando microserviços com .NET 8, Entity Framework, JWT, MySQL e Angular 15
+# Projeto de cadastro de Brands utilizando microserviços com .NET 8, Entity Framework, JWT, MySQL e Angular 15
 
 Este repositório contém dois microserviços: **auth-service** para login e **brand-service** para o cadastro de marcas. O front-end foi desenvolvido em **Angular 15**.
 
